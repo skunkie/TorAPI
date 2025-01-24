@@ -575,7 +575,7 @@
  *                   Name:
  *                     type: string
  *                   Id:
- *                     type: string
+ *                     type: integer
  *                   Url:
  *                     type: string
  *                   Torrent:
@@ -727,7 +727,7 @@
  *                   Title:
  *                     type: string
  *                   Id:
- *                     type: string
+ *                     type: integer
  *                   Original_Name:
  *                     type: string
  *                   Year:
@@ -839,7 +839,7 @@
  *                   Name:
  *                     type: string
  *                   Id:
- *                     type: string
+ *                     type: integer
  *                   Url:
  *                     type: string
  *                   Torrent:
@@ -906,7 +906,7 @@
  *                   Name:
  *                     type: string
  *                   Id:
- *                     type: string
+ *                     type: integer
  *                   Url:
  *                     type: string
  *                   Torrent:
@@ -997,7 +997,7 @@
  *                       Name:
  *                         type: string
  *                       Id:
- *                         type: string
+ *                         type: integer
  *                       Url:
  *                         type: string
  *                       Torrent:
@@ -1026,7 +1026,7 @@
  *                       Title:
  *                         type: string
  *                       Id:
- *                         type: string
+ *                         type: integer
  *                       Original_Name:
  *                         type: string
  *                       Year:
@@ -1059,7 +1059,7 @@
  *                       Name:
  *                         type: string
  *                       Id:
- *                         type: string
+ *                         type: integer
  *                       Url:
  *                         type: string
  *                       Torrent:
@@ -1084,7 +1084,7 @@
  *                       Name:
  *                         type: string
  *                       Id:
- *                         type: string
+ *                         type: integer
  *                       Url:
  *                         type: string
  *                       Torrent:

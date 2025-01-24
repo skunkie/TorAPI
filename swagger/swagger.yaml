@@ -624,7 +624,7 @@ paths:
                     Name:
                       type: string
                     Id:
-                      type: string
+                      type: integer
                     Url:
                       type: string
                     Torrent:
@@ -777,7 +777,7 @@ paths:
                     Title:
                       type: string
                     Id:
-                      type: string
+                      type: integer
                     Original_Name:
                       type: string
                     Year:
@@ -890,7 +890,7 @@ paths:
                     Name:
                       type: string
                     Id:
-                      type: string
+                      type: integer
                     Url:
                       type: string
                     Torrent:
@@ -958,7 +958,7 @@ paths:
                     Name:
                       type: string
                     Id:
-                      type: string
+                      type: integer
                     Url:
                       type: string
                     Torrent:
@@ -1050,7 +1050,7 @@ paths:
                         Name:
                           type: string
                         Id:
-                          type: string
+                          type: integer
                         Url:
                           type: string
                         Torrent:
@@ -1079,7 +1079,7 @@ paths:
                         Title:
                           type: string
                         Id:
-                          type: string
+                          type: integer
                         Original_Name:
                           type: string
                         Year:
@@ -1112,7 +1112,7 @@ paths:
                         Name:
                           type: string
                         Id:
-                          type: string
+                          type: integer
                         Url:
                           type: string
                         Torrent:
@@ -1137,7 +1137,7 @@ paths:
                         Name:
                           type: string
                         Id:
-                          type: string
+                          type: integer
                         Url:
                           type: string
                         Torrent:
