@@ -1,3 +1,4 @@
+const converter = require('api-spec-converter')
 const swaggerJsdoc = require('swagger-jsdoc')
 const yaml = require('js-yaml')
 const fs = require('fs')
@@ -42,3 +43,13 @@ const swaggerYaml = yaml.dump(specs)
 
 fs.writeFileSync('./swagger/swagger.json', JSON.stringify(specs, null, 2), 'utf8')
 fs.writeFileSync('./swagger/swagger.yaml', swaggerYaml, 'utf8')
+
+
+converter.convert({
+    from: 'openapi_3',
+    to: 'swagger_2',
+    source: './swagger/swagger.json',
+}).then(function (converted) {
+    fs.writeFileSync('./swagger/swagger2.json', converted.stringify({ syntax: 'json' }), 'utf8');
+    fs.writeFileSync('./swagger/swagger2.yaml', converted.stringify({ syntax: 'yaml' }), 'utf8');
+});
