@@ -1,0 +1,2029 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "name": "© Lifailon (Alex Kup)",
+      "url": "https://github.com/Lifailon/TorAPI"
+    },
+    "description": "Unofficial API (backend) for RuTracker, Kinozal, RuTor and NoNameClub",
+    "license": {
+      "name": "License MIT",
+      "url": "https://github.com/Lifailon/TorAPI/blob/main/LICENSE"
+    },
+    "title": "TorAPI",
+    "version": "0.5.2"
+  },
+  "host": "torapi.vercel.app",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/get/category/kinozal": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "items": {
+                "properties": {
+                  "num": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "404": {
+            "description": "Provider not found"
+          }
+        },
+        "tags": [
+          "Category"
+        ],
+        "description": "Get a static list of categories for content filtering for the Kinozal provider"
+      }
+    },
+    "/api/get/category/nonameclub": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "items": {
+                "properties": {
+                  "num": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "404": {
+            "description": "Provider not found"
+          }
+        },
+        "tags": [
+          "Category"
+        ],
+        "description": "Get a static list of categories for content filtering for the NoNameClub provider"
+      }
+    },
+    "/api/get/category/rutor": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "items": {
+                "properties": {
+                  "num": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "404": {
+            "description": "Provider not found"
+          }
+        },
+        "tags": [
+          "Category"
+        ],
+        "description": "Get a static list of categories for content filtering for the RuTor provider"
+      }
+    },
+    "/api/get/category/rutracker": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "items": {
+                "properties": {
+                  "num": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "404": {
+            "description": "Provider not found"
+          }
+        },
+        "tags": [
+          "Category"
+        ],
+        "description": "Get a static list of categories for content filtering for the RuTracker provider"
+      }
+    },
+    "/api/get/rss/kinozal": {
+      "get": {
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": 0,
+            "description": "Parameter to filter by category",
+            "enum": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              20,
+              21,
+              22,
+              23,
+              24,
+              32,
+              35,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              1001,
+              1002,
+              1003,
+              1004,
+              1006
+            ],
+            "in": "query",
+            "minimum": 0,
+            "name": "category",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": 0,
+            "description": "Release year for filtering",
+            "in": "query",
+            "minimum": 0,
+            "name": "year",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": 0,
+            "description": "Quality resolution format for filtering",
+            "enum": [
+              0,
+              720,
+              1080,
+              2160
+            ],
+            "in": "query",
+            "minimum": 0,
+            "name": "format",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "items": {
+                "properties": {
+                  "category": {
+                    "type": "string"
+                  },
+                  "comments": {
+                    "type": "string"
+                  },
+                  "date": {
+                    "type": "string"
+                  },
+                  "downloadLink": {
+                    "type": "string"
+                  },
+                  "link": {
+                    "type": "string"
+                  },
+                  "peers": {
+                    "type": "string"
+                  },
+                  "seeds": {
+                    "type": "string"
+                  },
+                  "size": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "400": {
+            "description": "No data"
+          },
+          "404": {
+            "description": "Provider not found"
+          }
+        },
+        "tags": [
+          "RSS"
+        ],
+        "description": "Get native RSS news feed from Kinozal provider in XML or JSON format. To get the answer in the required format, use the parameter in the answer block."
+      }
+    },
+    "/api/get/rss/nonameclub": {
+      "get": {
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": 0,
+            "description": "Parameter to filter by category",
+            "in": "query",
+            "name": "category",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "items": {
+                "properties": {
+                  "commentRss": {
+                    "type": "string"
+                  },
+                  "comments": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "creator": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "link": {
+                    "type": "string"
+                  },
+                  "pubDate": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "turbo": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "400": {
+            "description": "No data"
+          },
+          "404": {
+            "description": "Provider not found"
+          }
+        },
+        "tags": [
+          "RSS"
+        ],
+        "description": "Get native RSS news feed from NoNameClub provider in XML or JSON format. To get the answer in the required format, use the parameter in the answer block."
+      }
+    },
+    "/api/get/rss/rutor": {
+      "get": {
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": 0,
+            "description": "Parameter to filter by category",
+            "enum": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17
+            ],
+            "in": "query",
+            "minimum": 0,
+            "name": "category",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "items": {
+                "properties": {
+                  "comments": {
+                    "type": "integer"
+                  },
+                  "date": {
+                    "type": "string"
+                  },
+                  "downloadLink": {
+                    "type": "string"
+                  },
+                  "link": {
+                    "type": "string"
+                  },
+                  "magnet": {
+                    "type": "string"
+                  },
+                  "peers": {
+                    "type": "integer"
+                  },
+                  "seeds": {
+                    "type": "integer"
+                  },
+                  "size": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "400": {
+            "description": "No data"
+          },
+          "404": {
+            "description": "Provider not found"
+          }
+        },
+        "tags": [
+          "RSS"
+        ],
+        "description": "Get custom RSS news feed from RuTor provider in XML or JSON format. To get the answer in the required format, use the parameter in the answer block."
+      }
+    },
+    "/api/get/rss/rutracker": {
+      "get": {
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": 0,
+            "description": "Parameter to filter by category",
+            "in": "query",
+            "name": "category",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "items": {
+                "properties": {
+                  "author": {
+                    "type": "string"
+                  },
+                  "category": {
+                    "type": "string"
+                  },
+                  "categoryLable": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "link": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "updated": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "400": {
+            "description": "No data"
+          },
+          "404": {
+            "description": "Provider not found"
+          }
+        },
+        "tags": [
+          "RSS"
+        ],
+        "description": "Get native RSS news feed from RuTracker provider in XML or JSON format. To get the answer in the required format, use the parameter in the answer block."
+      }
+    },
+    "/api/provider/check": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "items": {
+                "properties": {
+                  "Kinozal": {
+                    "type": "boolean"
+                  },
+                  "NoNameClub": {
+                    "type": "boolean"
+                  },
+                  "RuTor": {
+                    "type": "boolean"
+                  },
+                  "RuTracker": {
+                    "type": "boolean"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "400": {
+            "description": "No data"
+          },
+          "404": {
+            "description": "Endpoint not found"
+          }
+        },
+        "tags": [
+          "Providers"
+        ],
+        "description": "Quickly check availability for all providers by searching by name"
+      }
+    },
+    "/api/provider/list": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "items": {
+                "properties": {
+                  "Provider": {
+                    "type": "string"
+                  },
+                  "Urls": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "400": {
+            "description": "No data"
+          },
+          "404": {
+            "description": "Endpoint not found"
+          }
+        },
+        "tags": [
+          "Providers"
+        ],
+        "description": "Get a list of providers"
+      }
+    },
+    "/api/provider/test": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Query parameter",
+            "in": "query",
+            "name": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "items": {
+                "properties": {
+                  "Id": {
+                    "properties": {
+                      "Files": {
+                        "properties": {
+                          "Kinozal": {
+                            "type": "boolean"
+                          },
+                          "NoNameClub": {
+                            "type": "boolean"
+                          },
+                          "RuTor": {
+                            "type": "boolean"
+                          },
+                          "RuTracker": {
+                            "type": "boolean"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "RunTime": {
+                        "properties": {
+                          "Kinozal": {
+                            "type": "number"
+                          },
+                          "NoNameClub": {
+                            "type": "number"
+                          },
+                          "RuTor": {
+                            "type": "number"
+                          },
+                          "RuTracker": {
+                            "type": "number"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "Status": {
+                        "properties": {
+                          "Kinozal": {
+                            "type": "boolean"
+                          },
+                          "NoNameClub": {
+                            "type": "boolean"
+                          },
+                          "RuTor": {
+                            "type": "boolean"
+                          },
+                          "RuTracker": {
+                            "type": "boolean"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "RSS": {
+                    "properties": {
+                      "Kinozal": {
+                        "type": "boolean"
+                      },
+                      "NoNameClub": {
+                        "type": "boolean"
+                      },
+                      "RuTor": {
+                        "type": "boolean"
+                      },
+                      "RuTracker": {
+                        "type": "boolean"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "Title": {
+                    "properties": {
+                      "Id": {
+                        "properties": {
+                          "Kinozal": {
+                            "type": "integer"
+                          },
+                          "NoNameClub": {
+                            "type": "integer"
+                          },
+                          "RuTor": {
+                            "type": "integer"
+                          },
+                          "RuTracker": {
+                            "type": "integer"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "RunTime": {
+                        "properties": {
+                          "Kinozal": {
+                            "type": "number"
+                          },
+                          "NoNameClub": {
+                            "type": "number"
+                          },
+                          "RuTor": {
+                            "type": "number"
+                          },
+                          "RuTracker": {
+                            "type": "number"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "Status": {
+                        "properties": {
+                          "Kinozal": {
+                            "type": "boolean"
+                          },
+                          "NoNameClub": {
+                            "type": "boolean"
+                          },
+                          "RuTor": {
+                            "type": "boolean"
+                          },
+                          "RuTracker": {
+                            "type": "boolean"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "400": {
+            "description": "No data"
+          },
+          "404": {
+            "description": "Endpoint not found"
+          }
+        },
+        "tags": [
+          "Providers"
+        ],
+        "description": "Testing all endpoints"
+      }
+    },
+    "/api/search/id/kinozal": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ID parameter",
+            "in": "query",
+            "name": "query",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "items": {
+                "properties": {
+                  "Actors": {
+                    "type": "string"
+                  },
+                  "Added_Date": {
+                    "type": "string"
+                  },
+                  "Audio": {
+                    "type": "string"
+                  },
+                  "Comments": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  },
+                  "Directer": {
+                    "type": "string"
+                  },
+                  "Download_Count": {
+                    "type": "string"
+                  },
+                  "Duration": {
+                    "type": "string"
+                  },
+                  "Files": {
+                    "items": {
+                      "properties": {
+                        "Name": {
+                          "type": "string"
+                        },
+                        "Size": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "Files_Count": {
+                    "type": "string"
+                  },
+                  "Hash": {
+                    "type": "string"
+                  },
+                  "IMDb_Rating": {
+                    "type": "string"
+                  },
+                  "IMDb_id": {
+                    "type": "string"
+                  },
+                  "IMDb_link": {
+                    "type": "string"
+                  },
+                  "Kinopoisk_Rating": {
+                    "type": "string"
+                  },
+                  "Kinopoisk_id": {
+                    "type": "string"
+                  },
+                  "Kinopoisk_link": {
+                    "type": "string"
+                  },
+                  "Kinozal_Rating": {
+                    "type": "string"
+                  },
+                  "Magnet": {
+                    "type": "string"
+                  },
+                  "Name": {
+                    "type": "string"
+                  },
+                  "Original_Name": {
+                    "type": "string"
+                  },
+                  "Peers": {
+                    "type": "string"
+                  },
+                  "Poster": {
+                    "type": "string"
+                  },
+                  "Posters": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "Quality": {
+                    "type": "string"
+                  },
+                  "Release": {
+                    "type": "string"
+                  },
+                  "Seeds": {
+                    "type": "string"
+                  },
+                  "Size": {
+                    "type": "string"
+                  },
+                  "Torrent": {
+                    "type": "string"
+                  },
+                  "Transcript": {
+                    "type": "string"
+                  },
+                  "Type": {
+                    "type": "string"
+                  },
+                  "Update_Date": {
+                    "type": "string"
+                  },
+                  "Url": {
+                    "type": "string"
+                  },
+                  "Video": {
+                    "type": "string"
+                  },
+                  "Votes": {
+                    "type": "string"
+                  },
+                  "Year": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "400": {
+            "description": "No data"
+          },
+          "404": {
+            "description": "Provider not found"
+          }
+        },
+        "tags": [
+          "Search by ID"
+        ],
+        "description": "Search by id in the torrent tracker Kinozal"
+      }
+    },
+    "/api/search/id/nonameclub": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ID parameter",
+            "in": "query",
+            "name": "query",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "items": {
+                "properties": {
+                  "Actors": {
+                    "type": "string"
+                  },
+                  "Audio": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  },
+                  "Directer": {
+                    "type": "string"
+                  },
+                  "Duration": {
+                    "type": "string"
+                  },
+                  "Files": {
+                    "items": {
+                      "properties": {
+                        "Name": {
+                          "type": "string"
+                        },
+                        "Size": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "Hash": {
+                    "type": "string"
+                  },
+                  "IMDb_id": {
+                    "type": "string"
+                  },
+                  "IMDb_link": {
+                    "type": "string"
+                  },
+                  "Kinopoisk_id": {
+                    "type": "string"
+                  },
+                  "Kinopoisk_link": {
+                    "type": "string"
+                  },
+                  "Magnet": {
+                    "type": "string"
+                  },
+                  "Name": {
+                    "type": "string"
+                  },
+                  "Poster": {
+                    "type": "string"
+                  },
+                  "Quality": {
+                    "type": "string"
+                  },
+                  "Rating": {
+                    "type": "string"
+                  },
+                  "Registration": {
+                    "type": "string"
+                  },
+                  "Release": {
+                    "type": "string"
+                  },
+                  "Size": {
+                    "type": "string"
+                  },
+                  "Torrent": {
+                    "type": "string"
+                  },
+                  "Type": {
+                    "type": "string"
+                  },
+                  "Url": {
+                    "type": "string"
+                  },
+                  "Video": {
+                    "type": "string"
+                  },
+                  "Votes": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "400": {
+            "description": "No data"
+          },
+          "404": {
+            "description": "Provider not found"
+          }
+        },
+        "tags": [
+          "Search by ID"
+        ],
+        "description": "Search by id in the torrent tracker NoNameClub"
+      }
+    },
+    "/api/search/id/rutor": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ID parameter",
+            "in": "query",
+            "name": "query",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "items": {
+                "properties": {
+                  "Add_Date": {
+                    "type": "string"
+                  },
+                  "Category": {
+                    "type": "string"
+                  },
+                  "Files": {
+                    "items": {
+                      "properties": {
+                        "Name": {
+                          "type": "string"
+                        },
+                        "Size": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "Hash": {
+                    "type": "string"
+                  },
+                  "IMDb_id": {
+                    "type": "string"
+                  },
+                  "IMDb_link": {
+                    "type": "string"
+                  },
+                  "Kinopoisk_id": {
+                    "type": "string"
+                  },
+                  "Kinopoisk_link": {
+                    "type": "string"
+                  },
+                  "Magnet": {
+                    "type": "string"
+                  },
+                  "Name": {
+                    "type": "string"
+                  },
+                  "Peers": {
+                    "type": "string"
+                  },
+                  "Poster": {
+                    "type": "string"
+                  },
+                  "Rating": {
+                    "type": "string"
+                  },
+                  "Seed_Date": {
+                    "type": "string"
+                  },
+                  "Seeds": {
+                    "type": "string"
+                  },
+                  "Size": {
+                    "type": "string"
+                  },
+                  "Torrent": {
+                    "type": "string"
+                  },
+                  "Url": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "400": {
+            "description": "No data"
+          },
+          "404": {
+            "description": "Provider not found"
+          }
+        },
+        "tags": [
+          "Search by ID"
+        ],
+        "description": "Search by id in the torrent tracker RuTor"
+      }
+    },
+    "/api/search/id/rutracker": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "ID parameter",
+            "in": "query",
+            "name": "query",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "items": {
+                "properties": {
+                  "Actors": {
+                    "type": "string"
+                  },
+                  "Audio": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  },
+                  "Directer": {
+                    "type": "string"
+                  },
+                  "Duration": {
+                    "type": "string"
+                  },
+                  "Files": {
+                    "items": {
+                      "properties": {
+                        "Name": {
+                          "type": "string"
+                        },
+                        "Size": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "Hash": {
+                    "type": "string"
+                  },
+                  "IMDb_id": {
+                    "type": "string"
+                  },
+                  "IMDb_link": {
+                    "type": "string"
+                  },
+                  "Kinopoisk_id": {
+                    "type": "string"
+                  },
+                  "Kinopoisk_link": {
+                    "type": "string"
+                  },
+                  "Magnet": {
+                    "type": "string"
+                  },
+                  "Name": {
+                    "type": "string"
+                  },
+                  "Poster": {
+                    "type": "string"
+                  },
+                  "Quality": {
+                    "type": "string"
+                  },
+                  "Release": {
+                    "type": "string"
+                  },
+                  "Torrent": {
+                    "type": "string"
+                  },
+                  "Type": {
+                    "type": "string"
+                  },
+                  "Url": {
+                    "type": "string"
+                  },
+                  "Video": {
+                    "type": "string"
+                  },
+                  "Year": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "400": {
+            "description": "No data"
+          },
+          "404": {
+            "description": "Provider not found"
+          }
+        },
+        "tags": [
+          "Search by ID"
+        ],
+        "description": "Search by id in the torrent tracker RuTracker"
+      }
+    },
+    "/api/search/title/all": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Query parameter",
+            "in": "query",
+            "name": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "0",
+            "description": "Page number or all",
+            "enum": [
+              "0",
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "all"
+            ],
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": 0,
+            "description": "Release year for filtering",
+            "in": "query",
+            "minimum": 0,
+            "name": "year",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": 0,
+            "description": "Quality resolution format for filtering",
+            "enum": [
+              0,
+              720,
+              1080,
+              2160
+            ],
+            "in": "query",
+            "minimum": 0,
+            "name": "format",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "properties": {
+                "Kinozal": {
+                  "items": {
+                    "properties": {
+                      "Category": {
+                        "type": "string"
+                      },
+                      "Comments": {
+                        "type": "string"
+                      },
+                      "Date": {
+                        "type": "string"
+                      },
+                      "Format": {
+                        "type": "string"
+                      },
+                      "Id": {
+                        "type": "integer"
+                      },
+                      "Language": {
+                        "type": "string"
+                      },
+                      "Name": {
+                        "type": "string"
+                      },
+                      "Original_Name": {
+                        "type": "string"
+                      },
+                      "Peers": {
+                        "type": "string"
+                      },
+                      "Seeds": {
+                        "type": "string"
+                      },
+                      "Size": {
+                        "type": "string"
+                      },
+                      "Title": {
+                        "type": "string"
+                      },
+                      "Torrent": {
+                        "type": "string"
+                      },
+                      "Url": {
+                        "type": "string"
+                      },
+                      "Year": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "NoNameClub": {
+                  "items": {
+                    "properties": {
+                      "Category": {
+                        "type": "string"
+                      },
+                      "Comments": {
+                        "type": "string"
+                      },
+                      "Date": {
+                        "type": "string"
+                      },
+                      "Id": {
+                        "type": "integer"
+                      },
+                      "Name": {
+                        "type": "string"
+                      },
+                      "Peers": {
+                        "type": "string"
+                      },
+                      "Seeds": {
+                        "type": "string"
+                      },
+                      "Size": {
+                        "type": "string"
+                      },
+                      "Torrent": {
+                        "type": "string"
+                      },
+                      "Url": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "RuTor": {
+                  "items": {
+                    "properties": {
+                      "Comments": {
+                        "type": "string"
+                      },
+                      "Date": {
+                        "type": "string"
+                      },
+                      "Hash": {
+                        "type": "string"
+                      },
+                      "Id": {
+                        "type": "integer"
+                      },
+                      "Name": {
+                        "type": "string"
+                      },
+                      "Peers": {
+                        "type": "string"
+                      },
+                      "Seeds": {
+                        "type": "string"
+                      },
+                      "Size": {
+                        "type": "string"
+                      },
+                      "Torrent": {
+                        "type": "string"
+                      },
+                      "Url": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "RuTracker": {
+                  "items": {
+                    "properties": {
+                      "Category": {
+                        "type": "string"
+                      },
+                      "Checked": {
+                        "type": "string"
+                      },
+                      "Date": {
+                        "type": "string"
+                      },
+                      "Download_Count": {
+                        "type": "string"
+                      },
+                      "Id": {
+                        "type": "integer"
+                      },
+                      "Name": {
+                        "type": "string"
+                      },
+                      "Peers": {
+                        "type": "string"
+                      },
+                      "Seeds": {
+                        "type": "string"
+                      },
+                      "Size": {
+                        "type": "string"
+                      },
+                      "Torrent": {
+                        "type": "string"
+                      },
+                      "Url": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "No data"
+          },
+          "404": {
+            "description": "Provider not found"
+          }
+        },
+        "tags": [
+          "Search by Title"
+        ],
+        "description": "Search for a movie or TV series in all torrent trackers"
+      }
+    },
+    "/api/search/title/kinozal": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Query parameter",
+            "in": "query",
+            "name": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": 0,
+            "description": "Parameter to filter by category",
+            "enum": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              20,
+              21,
+              22,
+              23,
+              24,
+              32,
+              35,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              1001,
+              1002,
+              1003,
+              1004,
+              1006
+            ],
+            "in": "query",
+            "minimum": 0,
+            "name": "category",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": "0",
+            "description": "Page number (100 max) or all",
+            "enum": [
+              "0",
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10",
+              "11",
+              "12",
+              "13",
+              "14",
+              "15",
+              "16",
+              "17",
+              "18",
+              "19",
+              "all"
+            ],
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": 0,
+            "description": "Release year for filtering",
+            "in": "query",
+            "minimum": 0,
+            "name": "year",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": 0,
+            "description": "Quality resolution format for filtering",
+            "enum": [
+              0,
+              720,
+              1080,
+              2160
+            ],
+            "in": "query",
+            "minimum": 0,
+            "name": "format",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "items": {
+                "properties": {
+                  "Category": {
+                    "type": "string"
+                  },
+                  "Comments": {
+                    "type": "string"
+                  },
+                  "Date": {
+                    "type": "string"
+                  },
+                  "Format": {
+                    "type": "string"
+                  },
+                  "Id": {
+                    "type": "integer"
+                  },
+                  "Language": {
+                    "type": "string"
+                  },
+                  "Name": {
+                    "type": "string"
+                  },
+                  "Original_Name": {
+                    "type": "string"
+                  },
+                  "Peers": {
+                    "type": "string"
+                  },
+                  "Seeds": {
+                    "type": "string"
+                  },
+                  "Size": {
+                    "type": "string"
+                  },
+                  "Time": {
+                    "type": "string"
+                  },
+                  "Title": {
+                    "type": "string"
+                  },
+                  "Torrent": {
+                    "type": "string"
+                  },
+                  "Url": {
+                    "type": "string"
+                  },
+                  "Year": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "400": {
+            "description": "No data"
+          },
+          "404": {
+            "description": "Provider not found"
+          }
+        },
+        "tags": [
+          "Search by Title"
+        ],
+        "description": "Search for a movie or TV series in torrent tracker Kinozal"
+      }
+    },
+    "/api/search/title/nonameclub": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Query parameter",
+            "in": "query",
+            "name": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": 0,
+            "description": "Parameter to filter by category",
+            "in": "query",
+            "name": "category",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": "0",
+            "description": "Page number (4 max) or all",
+            "enum": [
+              "0",
+              "1",
+              "2",
+              "3",
+              "all"
+            ],
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "items": {
+                "properties": {
+                  "Category": {
+                    "type": "string"
+                  },
+                  "Comments": {
+                    "type": "string"
+                  },
+                  "Date": {
+                    "type": "string"
+                  },
+                  "Id": {
+                    "type": "integer"
+                  },
+                  "Name": {
+                    "type": "string"
+                  },
+                  "Peers": {
+                    "type": "string"
+                  },
+                  "Seeds": {
+                    "type": "string"
+                  },
+                  "Size": {
+                    "type": "string"
+                  },
+                  "Time": {
+                    "type": "string"
+                  },
+                  "Torrent": {
+                    "type": "string"
+                  },
+                  "Url": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "400": {
+            "description": "No data"
+          },
+          "404": {
+            "description": "Provider not found"
+          }
+        },
+        "tags": [
+          "Search by Title"
+        ],
+        "description": "Search for a movie or TV series in torrent tracker NoNameClub"
+      }
+    },
+    "/api/search/title/rutor": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Query parameter",
+            "in": "query",
+            "name": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": 0,
+            "description": "Parameter to filter by category",
+            "enum": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17
+            ],
+            "in": "query",
+            "minimum": 0,
+            "name": "category",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": "0",
+            "description": "Page number (20 max) or all",
+            "enum": [
+              "0",
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10",
+              "11",
+              "12",
+              "13",
+              "14",
+              "15",
+              "16",
+              "17",
+              "18",
+              "19",
+              "all"
+            ],
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "items": {
+                "properties": {
+                  "Comments": {
+                    "type": "string"
+                  },
+                  "Date": {
+                    "type": "string"
+                  },
+                  "Hash": {
+                    "type": "string"
+                  },
+                  "Id": {
+                    "type": "integer"
+                  },
+                  "Name": {
+                    "type": "string"
+                  },
+                  "Peers": {
+                    "type": "string"
+                  },
+                  "Seeds": {
+                    "type": "string"
+                  },
+                  "Size": {
+                    "type": "string"
+                  },
+                  "Torrent": {
+                    "type": "string"
+                  },
+                  "Url": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "400": {
+            "description": "No data"
+          },
+          "404": {
+            "description": "Provider not found"
+          }
+        },
+        "tags": [
+          "Search by Title"
+        ],
+        "description": "Search for a movie or TV series in torrent tracker RuTor"
+      }
+    },
+    "/api/search/title/rutracker": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Query parameter",
+            "in": "query",
+            "name": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": 0,
+            "description": "Parameter to filter by category",
+            "in": "query",
+            "name": "category",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": "0",
+            "description": "Page number (10 max) or all",
+            "enum": [
+              "0",
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "all"
+            ],
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "items": {
+                "properties": {
+                  "Category": {
+                    "type": "string"
+                  },
+                  "Checked": {
+                    "type": "string"
+                  },
+                  "Date": {
+                    "type": "string"
+                  },
+                  "Download_Count": {
+                    "type": "string"
+                  },
+                  "Id": {
+                    "type": "integer"
+                  },
+                  "Name": {
+                    "type": "string"
+                  },
+                  "Peers": {
+                    "type": "string"
+                  },
+                  "Seeds": {
+                    "type": "string"
+                  },
+                  "Size": {
+                    "type": "string"
+                  },
+                  "Torrent": {
+                    "type": "string"
+                  },
+                  "Url": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "400": {
+            "description": "No data"
+          },
+          "404": {
+            "description": "Provider not found"
+          }
+        },
+        "tags": [
+          "Search by Title"
+        ],
+        "description": "Search for a movie or TV series in torrent tracker RuTracker"
+      }
+    }
+  },
+  "tags": [],
+  "x-components": {}
+}
