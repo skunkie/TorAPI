@@ -276,7 +276,7 @@ async function RuTracker(query, categoryId, page) {
         if (checkData.length > 0) {
             const torrent = {
                 'Name': data(element).find('.row4 .wbr .med').text().trim(),
-                'Id': data(element).find('.row4 .wbr .med').attr('href').replace(/.+t=/g, ''),
+                'Id': parseInt(data(element).find('.row4 .wbr .med').attr('href').replace(/.+t=/g, ''), 10),
                 'Url': `${url}/forum/` + data(element).find('.row4 .wbr .med').attr('href'),
                 'Torrent': `${url}/forum/dl.php?t=` + data(element).find('.row4 .wbr .med').attr('href').replace(/.+t=/g, ''),
                 // Забираем первые два значения (размер и тип данных)
@@ -764,7 +764,7 @@ async function Kinozal(query, categoryId, page, year, format) {
                 // Заполняем параметры из заголовка
                 'Name': Title.trim(),
                 'Title': arrTitle[0].trim(),
-                'Id': torrentName.attr('href').replace(/.+id=/, ''),
+                'Id': parseInt(torrentName.attr('href').replace(/.+id=/, ''), 10),
                 'Original_Name': arrTitle[1]?.trim() || '',
                 'Year': arrTitle[2]?.trim() || '',
                 'Language': arrTitle[3]?.trim() || '',
@@ -1169,7 +1169,7 @@ async function RuTor(query, categoryId, page) {
             const comments = count === 5 ? data(element).find('td:eq(2)').text().trim() : count === 5 ? 0 : "0"
             const torrent = {
                 'Name': data(element).find('a:eq(2)').text().trim(),
-                'Id': data(element).find('a:eq(2)').attr('href').replace(/\/torrent\//g, "").replace(/\/.+/g, ""),
+                'Id': parseInt(data(element).find('a:eq(2)').attr('href').replace(/\/torrent\//g, "").replace(/\/.+/g, ""), 10),
                 'Url': url + data(element).find('a:eq(2)').attr('href'),
                 'Torrent': "https:" + data(element).find('a:eq(0)').attr('href'),
                 'Hash': data(element).find('a:eq(1)').attr('href').replace(/.+btih:|&.+/g, ''),
@@ -1591,7 +1591,7 @@ async function NoNameClub(query, categoryId, page) {
             const time = dataArray[1]
             const torrent = {
                 'Name': data(element).find('.genmed a b').text().trim(),
-                'Id': data(element).find('.genmed a').attr('href').replace(/.+t=/, ''),
+                'Id': parseInt(data(element).find('.genmed a').attr('href').replace(/.+t=/, ''), 10),
                 'Url': "https://nnmclub.to/forum/" + data(element).find('a:eq(1)').attr('href'),
                 'Torrent': "https://nnmclub.to/forum/" + data(element).find('a:eq(3)').attr('href'),
                 'Size': size,
