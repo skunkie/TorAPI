@@ -13,11 +13,6 @@
     "title": "TorAPI",
     "version": "0.5.2"
   },
-  "host": "torapi.vercel.app",
-  "basePath": "/",
-  "schemes": [
-    "https"
-  ],
   "paths": {
     "/api/get/category/kinozal": {
       "get": {

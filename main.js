@@ -2158,24 +2158,6 @@ const options = {
                 url: "https://github.com/Lifailon/TorAPI/blob/main/LICENSE"
             }
         },
-        servers: [
-            {
-              url: 'http://localhost:8443',
-              description: 'Local server'
-            },
-            {
-                url: 'https://torapi.vercel.app',
-                description: 'Production server (main)'
-            },
-            {
-                url: 'https://toruapi.vercel.app',
-                description: 'Production server (mirror)'
-            },
-            {
-                url: 'https://rutorapi.vercel.app',
-                description: 'Production server (mirror)'
-            }
-        ]
     },
     apis: ['./swagger/swagger.js']
 }
